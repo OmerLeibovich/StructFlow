@@ -116,11 +116,11 @@ class DoublyLinkedList:
 
     def search_value(self, value):
         current = self.head if self.mode == "head" else self.tail
-        last_checked_node = None  # משתנה כדי לזכור את האיבר האחרון שנבדק
+        last_checked_node = None
         while current:
             # Highlight the node being checked
             self.highlighted_node = current
-            last_checked_node = current  # שמור את האיבר הנוכחי
+            last_checked_node = current
             self.draw(screen)
             pygame.display.update()
             pygame.time.delay(500)
@@ -130,9 +130,9 @@ class DoublyLinkedList:
 
             current = current.next if self.mode == "head" else current.prev
 
-        # אם לא נמצא, הגדר את האיבר האחרון חזרה לכחול
+
         if last_checked_node:
-            self.highlighted_node = None  # נקה את ההדגשה
+            self.highlighted_node = None
             self.draw(screen)
             pygame.display.update()
             pygame.time.delay(500)
@@ -186,8 +186,8 @@ def Run_DoublyLinkedList():
     user_input = ""
     search_result = ""
     search_start_time = None
-    error_message = ""  # משתנה לשמירת הודעת שגיאה
-    error_message_start_time = None  # זמן תחילת הודעת השגיאה
+    error_message = ""
+    error_message_start_time = None
     font = pygame.font.Font(None, 36)
 
     while running:

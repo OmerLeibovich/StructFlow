@@ -13,7 +13,7 @@ def counting_sort(array,error_message,user_input):
         count[num - min_val] += 1
 
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text(font, error_message, user_input)
         draw_array(array, y_position="top")
         draw_array(count, y_position="bottom", highlight_indices=[num - min_val])
         draw_explanation(f"Counting: Number {num} appears {count[num - min_val]} times")
@@ -23,7 +23,7 @@ def counting_sort(array,error_message,user_input):
         count[i] += count[i - 1]
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text(font, error_message, user_input)
     draw_array(count, y_position="bottom", highlight_indices=range(len(count)))
     draw_explanation("Cumulative count array ready")
     time.sleep(2)
@@ -35,14 +35,14 @@ def counting_sort(array,error_message,user_input):
         count[num - min_val] -= 1
 
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text(font, error_message, user_input)
         draw_array(count, y_position="bottom", highlight_indices=[num - min_val])
         draw_array(sorted_array, highlight_indices=[sorted_index], y_position="top")
         draw_explanation(f"Placing {num} at position {sorted_index} in sorted array")
         time.sleep(2)
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text(font, error_message, user_input)
     draw_array(array, y_position="bottom")
     draw_array(sorted_array, y_position="top")
     draw_explanation("Sorting completed!")

@@ -124,43 +124,42 @@ class LinkedList:
     def Search_Value(self, screen, value):
         font = pygame.font.Font(None, 36)
         count = 0
-        if not self.head:  # אם הרשימה ריקה
+        if not self.head:
             return "The list is empty"
 
         current = self.head
         while current:
-            # צובע את התא הנוכחי באדום (מסמן אותו כנבדק)
+
             pygame.draw.circle(screen, (255, 0, 0), (current.x, current.y), NODE_RADIUS)
             text_surface = font.render(str(current.value), True, WHITE)
             text_rect = text_surface.get_rect(center=(current.x, current.y))
             screen.blit(text_surface, text_rect)
 
-            # עדכון המסך
             pygame.display.update()
 
-            # בדיקה אם הערך תואם
+
             if current.value == value:
-                self.highlighted_node = current  # מסמן את הצומת התואם
-                pygame.display.update()  # מעדכן את המסך כדי להציג את הצביעה
+                self.highlighted_node = current
+                pygame.display.update()
                 return f"Value {value} found at node in LinkedList [{count}]"
 
-            # המתנה קצרה כדי להדגיש את החיפוש
+
             pygame.time.delay(500)
 
-            # אם אין התאמה, מסיר את הצבע האדום (מחזיר לצבע המקורי)
+
             pygame.draw.circle(screen, BLUE, (current.x, current.y), NODE_RADIUS)
             text_surface = font.render(str(current.value), True, WHITE)
             text_rect = text_surface.get_rect(center=(current.x, current.y))
             screen.blit(text_surface, text_rect)
 
-            # עדכון המסך שוב
+
             pygame.display.update()
 
-            # מעבר לתא הבא
+
             current = current.next
             count +=1
 
-        # אם הערך לא נמצא
+
         return f"Value {value} not found in the Linkedlist"
 
     def reset_highlight(self):
@@ -191,7 +190,7 @@ def Run_LinkedList():
         text_rect = text_surface.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 50))
         screen.blit(text_surface, text_rect)
 
-    # משתנים עבור הודעות
+
     error_message = ""
     error_message_start_time = None
     font = pygame.font.Font(None, 36)

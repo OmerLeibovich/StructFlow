@@ -14,24 +14,23 @@ def quick_sort(array, error_message, user_input, low=0, high=None):
 
 
 def median_of_three(array, low, high):
-    """ בוחר את הפיווט בצורה חכמה יותר: מדיאן משלושה """
+
     mid = (low + high) // 2
     pivot_candidates = [array[low], array[mid], array[high]]
     pivot_candidates.sort()
-    return pivot_candidates[1]  # הערך האמצעי מבין השלושה
-
+    return pivot_candidates[1]
 
 def improved_partition(array, low, high, error_message, user_input):
-    pivot = median_of_three(array, low, high)  # בחירת פיווט חכמה יותר
+    pivot = median_of_three(array, low, high)
     pivot_index = array.index(pivot)
 
-    # העברת הפיווט לסוף (כדי להשתמש באותו אלגוריתם)
+
     array[pivot_index], array[high] = array[high], array[pivot_index]
 
     i = low - 1
     for j in range(low, high):
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text( font, error_message, user_input)
         draw_array(array, highlight_indices=[j, high])
         time.sleep(2)
 
@@ -42,7 +41,7 @@ def improved_partition(array, low, high, error_message, user_input):
     array[i + 1], array[high] = array[high], array[i + 1]
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text( font, error_message, user_input)
     draw_array(array, highlight_indices=[i + 1])
     time.sleep(2)
 

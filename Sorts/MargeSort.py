@@ -10,7 +10,7 @@ def merge_sort(array, error_message, user_input, left=0, right=None):
 
 
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text(font, error_message, user_input)
         draw_array(array, highlight_indices=list(range(left, mid + 1)), move_index=mid)
         draw_explanation(f"Splitting: {array[left:mid+1]} | {array[mid+1:right+1]}")
         time.sleep(1)
@@ -29,14 +29,14 @@ def merge(array, left, mid, right, error_message, user_input):
 
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text(font, error_message, user_input)
     draw_array(left_part, highlight_indices=[], move_index=None, insert_index=None, y_offset=-100)  # חלק שמאלי למעלה
     draw_array(right_part, highlight_indices=[], move_index=None, insert_index=None, y_offset=100)   # חלק ימני למטה
     time.sleep(1)
 
     while i < len(left_part) and j < len(right_part):
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text( font, error_message, user_input)
 
         # ציור שני המערכים
         draw_array(left_part, highlight_indices=[i], y_offset=-100)
@@ -70,6 +70,6 @@ def merge(array, left, mid, right, error_message, user_input):
 
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text(font, error_message, user_input)
     draw_array(array, highlight_indices=list(range(left, right + 1)))
     time.sleep(1)

@@ -10,7 +10,7 @@ def heap_sort(array,error_message, user_input):
     for i in range(n - 1, 0, -1):
         array[i], array[0] = array[0], array[i]
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text(font, error_message, user_input)
         draw_array(array, highlight_indices=[i])
         time.sleep(2)
         heapify(array, i, 0)

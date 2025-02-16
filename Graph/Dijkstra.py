@@ -32,12 +32,12 @@ def connect_nodes(node1, node2, edges):
 
 
 def find_mst_progressive(nodes, edges, mst_edges, union_find):
-    edges = sorted(edges, key=lambda edge: edge[2])  # ממיינים לפי משקל
+    edges = sorted(edges, key=lambda edge: edge[2])
     for edge in edges:
         node1, node2, weight = edge
-        if union_find.union(node1, node2):  # אם לא סוגר מעגל
+        if union_find.union(node1, node2):
             mst_edges.append(edge)
-            return edge  # מחזירים את הקשת שנוספה
+            return edge
     return None
 
 
@@ -53,9 +53,9 @@ def Graph():
     connecting_nodes = False
     lines = False
     shortest_path_edges = set()
-    shortest_path_progress = []  # התקדמות המסלול
+    shortest_path_progress = []
     show_numbers = False
-    distances_array = []  # מערך למרחקים
+    distances_array = []
 
     right_click_held = False
     start_node = None
@@ -71,13 +71,13 @@ def Graph():
                     if y < 650:
                         node = Node(x, y)
                         nodes.append(node)
-                elif event.button == 3:  # החזקת לחצן ימני
+                elif event.button == 3:
                     right_click_held = True
                     pos = pygame.mouse.get_pos()
                     start_node = find_nearest_node(pos, nodes)
 
             elif event.type == pygame.MOUSEBUTTONUP:
-                if event.button == 3:  # שחרור לחצן ימני
+                if event.button == 3:
                     right_click_held = False
                     start_node = None
 
@@ -93,10 +93,10 @@ def Graph():
                 if event.key == pygame.K_UP and show_numbers:
                     if not shortest_path_edges:
                         union_find = UnionFind(nodes)
-                        shortest_path_edges = []  # מסלול ה-MST
-                        mst_edges = []  # שמירה זמנית של הקשתות
+                        shortest_path_edges = []
+                        mst_edges = []
 
-                    # הוספת הקשת הקטנה ביותר תוך שמירה על מניעת מעגלים
+
                     next_edge = find_mst_progressive(nodes, edges, shortest_path_edges, union_find)
                     if next_edge:
                         shortest_path_progress.append(next_edge)
@@ -121,20 +121,19 @@ def Graph():
 
         screen.fill((255, 255, 255))
 
-        # ציור הקו השחור
         pygame.draw.line(screen, (0, 0, 0), (0, 650), (SCREEN_WIDTH, 650), 3)
 
-        # ציור הצמתים
+
         for node in nodes:
             pygame.draw.circle(screen, (0, 0, 255), (node.x, node.y), 22)
 
-        # ציור הקשתות
+
         for edge in edges:
             x1, y1, x2, y2, random_number = edge[0].x, edge[0].y, edge[1].x, edge[1].y, edge[2]
             if edge in shortest_path_progress or (edge[1], edge[0], edge[2]) in shortest_path_progress:
-                edge_color = (255, 0, 0)  # אדום
+                edge_color = (255, 0, 0)
             else:
-                edge_color = (0, 0, 0)  # שחור
+                edge_color = (0, 0, 0)
 
             pygame.draw.line(screen, edge_color, (x1, y1), (x2, y2), 6)
 

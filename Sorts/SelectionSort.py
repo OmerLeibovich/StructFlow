@@ -7,7 +7,7 @@ def selection_sort(array, error_message, user_input):
         min_index = i
         for j in range(i + 1, n):
             clear_screen()
-            draw_text(array, font, error_message, user_input)
+            draw_text( font, error_message, user_input)
             draw_array(array, highlight_indices=[j], move_index=min_index)
             draw_explanation(f"Current minimum: {array[min_index]}")
             time.sleep(1)
@@ -19,11 +19,11 @@ def selection_sort(array, error_message, user_input):
         time.sleep(1)
 
         clear_screen()
-        draw_text(array, font, error_message, user_input)
+        draw_text( font, error_message, user_input)
         draw_array(array, highlight_indices=[i])
         time.sleep(1)
 
     clear_screen()
-    draw_text(array, font, error_message, user_input)
+    draw_text( font, error_message, user_input)
     draw_array(array)
     draw_explanation("Sorting completed! ✅")

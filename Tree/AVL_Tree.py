@@ -202,9 +202,8 @@ class AVLTree:
 
 def draw_array(screen, array, highlighted_numbers, targets, visited_nodes,algoritam):
     font = pygame.font.Font(None, 36)
-    y_position = SCREEN_HEIGHT   # שינוי מיקום המערך הראשי
+    y_position = SCREEN_HEIGHT
 
-    # ציור המערך הראשי
     current_x = (SCREEN_WIDTH // 2) - (font.size("[" + ",".join(str(num) for num in array) + "]")[0] // 2)
     arrayTXT = font.render("Leafs:", True, BLACK)
     screen.blit(arrayTXT, (current_x - 100, y_position))
@@ -265,7 +264,7 @@ def AVL_Tree():
     stack = []
     highlighted_numbers = []
     targets = []
-    visited_nodes = []  # מערך למספרים המבוקרים
+    visited_nodes = []
     BFS_activate = False
     DFS_activate = False
     running = True
@@ -313,7 +312,7 @@ def AVL_Tree():
                 elif event.key == pygame.K_LEFT and DFS_activate == False:
                     Highest, BFS_order, targets = avl_tree.BFS(Highest, BFS_order)
                     for target in targets:
-                        if target.key not in visited_nodes:  # עדכון המספרים המבוקרים
+                        if target.key not in visited_nodes:
                             visited_nodes.append(target.key)
                         if target.key not in highlighted_numbers:
                             highlighted_numbers.append(target.key)
@@ -321,7 +320,7 @@ def AVL_Tree():
 
                 elif event.key == pygame.K_RIGHT and BFS_activate == False:
                     stack, DFS_order, target = avl_tree.DFS(stack, DFS_order)
-                    if target is not None and target not in visited_nodes:  # עדכון המספרים המבוקרים
+                    if target is not None and target not in visited_nodes:
                         visited_nodes.append(target)
                     if target is not None and target not in highlighted_numbers:
                         highlighted_numbers.append(target)

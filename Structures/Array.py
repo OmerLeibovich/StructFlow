@@ -76,25 +76,25 @@ while running:
                 array = []
                 user_input = ""
 
-            elif event.key == pygame.K_s:#תקין
+            elif event.key == pygame.K_s:
                 BubbleSort.bubble_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_i:#תקין
+            elif event.key == pygame.K_i:
                 InsertionSort.insertion_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_a:#תקין
+            elif event.key == pygame.K_a:
                 SelectionSort.selection_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_m:#בעיה
+            elif event.key == pygame.K_m:
                 MargeSort.merge_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_q:#תקין
+            elif event.key == pygame.K_q:
                 QuickSort.quick_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_c:#תקין
+            elif event.key == pygame.K_c:
                 array = CountingSort.counting_sort(array,error_message,user_input)
 
-            elif event.key == pygame.K_h:#תקין
+            elif event.key == pygame.K_h:
                 HeapSort.heap_sort(array,error_message,user_input)
 
             elif event.key == pygame.K_BACKSPACE:
