@@ -3,11 +3,12 @@ from Screen import *
 import DrawArray
 import time
 
+pygame.display.set_caption("Stack Visualizer")
 class StackVisualizer:
     def __init__(self):
         self.stack = []
 
-    def push(self, value, color=(255, 255, 0)):
+    def push(self, value, color = YELLOW):
         max_items = (SCREEN_HEIGHT - 220) // (RECT_HEIGHT + 10)
 
         if len(self.stack) < max_items:
